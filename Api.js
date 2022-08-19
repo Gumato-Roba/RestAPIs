@@ -1,5 +1,4 @@
 
-
  //script.js
 const products = document.getElementById("products");
 const fruList = document.getElementById("fruList");
@@ -13,18 +12,14 @@ async function getdata(item,element){
    }).then((data)=>{
     data.forEach((product) => {
      const li = document.createElement("li");
-     if (item != "products") {
-      li.innerHTML = product["name"];
-     }else{
-      li.innerHTML = product["name"].concat("<br/>").concat(product["category"]);
-     }
+     li.innerHTML = product["name"].concat("<br/>").concat(product["category"]);
      element.appendChild(li);
    });
  })
 }
 
 //Products
-getdata("/products",products);
+getdata("products",products);
 
 //fruits
 getdata("products/fruits",fruList);
